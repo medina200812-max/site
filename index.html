@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Abril+Fatface&amp;family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&amp;family=Dancing+Script:wght@400..700&amp;family=Lobster&amp;family=Monoton&amp;family=Mulish:ital,wght@0,200..1000;1,200..1000&amp;family=Oleo+Script:wght@400;700&amp;family=Pacifico&amp;family=Work+Sans:wght@100..900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&amp;display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="body">
+      <img
+        src="logo.jpg"
+        class="logo"
+      />
+      <h1 class="main">бижутерия • косметика •игрушки •одежда</h1>
+      <h4 class="main">Доставка по всему Казахстану</h4>
+    </div>
+    <div class="main2">
+      <hr style="width: 350px; margin-left: 250px" />
+      <hr style="width: 350px" />
+    </div>
+    <h1 class="body">Наши магазины</h1>
+    <div class="main3">
+      <hr class="hr" style="width: 150px" />
+      <hr class="hr" style="width: 150px" />
+    </div>
+
+    <div class="btn" style="margin-top: 30px">
+      <a
+        href="https://api.whatsapp.com/send/?phone=7716915181&text&type=phone_number&app_absent=0&utm_source=ig"
+        ><button class="bttn">
+          <h1 class="h1">Написать на Whatsapp</h1>
+          <p class="p">г.Тараз,ТЦ « Имити 2» 1 этаж 1 бутик</p>
+        </button></a
+      >
+    </div>
+
+    <hr class="lane" />
+
+    <div class="btn" style="margin-top: 30px">
+      <a
+        href="https://www.instagram.com/brent_academy/"
+        ><button class="bttn">
+          <h1 class="h1">Перейти в Instagram✨</h1>
+        </button></a
+      >
+    </div>
+
+    <p class="footer">brent_academy</p>
+    <script src="./script.js"></script>
+    <script>
+      if ("WebSocket" in window) {
+        (function () {
+          function refreshCSS() {
+            var sheets = [].slice.call(document.getElementsByTagName("link"));
+            var head = document.getElementsByTagName("head")[0];
+            for (var i = 0; i < sheets.length; ++i) {
+              var elem = sheets[i];
+              var parent = elem.parentElement || head;
+              parent.removeChild(elem);
+              var rel = elem.rel;
+              if (
+                (elem.href && typeof rel != "string") ||
+                rel.length == 0 ||
+                rel.toLowerCase() == "stylesheet"
+              ) {
+                var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, "");
+                elem.href =
+                  url +
+                  (url.indexOf("?") >= 0 ? "&" : "?") +
+                  "_cacheOverride=" +
+                  new Date().valueOf();
+              }
+              parent.appendChild(elem);
+            }
+          }
+          var protocol =
+            window.location.protocol === "http:" ? "ws://" : "wss://";
+          var address =
+            protocol + window.location.host + window.location.pathname + "/ws";
+          var socket = new WebSocket(address);
+          socket.onmessage = function (msg) {
+            if (msg.data == "reload") window.location.reload();
+            else if (msg.data == "refreshcss") refreshCSS();
+          };
+          if (
+            sessionStorage &&
+            !sessionStorage.getItem("IsThisFirstTime_Log_From_LiveServer")
+          ) {
+            console.log("Live reload enabled.");
+            sessionStorage.setItem("IsThisFirstTime_Log_From_LiveServer", true);
+          }
+        })();
+      } else {
+        console.error(
+          "Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.",
+        );
+      }
+      // ]]>
+    </script>
+  </body>
+</html>
